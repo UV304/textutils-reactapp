@@ -7,7 +7,7 @@ function App() {
     <>
       <Navbar title={'TextUtils'} about={'About'} />
       <div className='container '>
-        <TextUtils />
+        <TextUtils heading="Enter text here" />
       </div>
     </>
   );
