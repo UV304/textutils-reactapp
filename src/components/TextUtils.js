@@ -36,7 +36,10 @@ export default function TextUtils(props) {
             </div>
             <div className="container">
                 <h2>Text Summary</h2>
-                <p></p>
+                <p>{text.trim().split(' ').length} {text.trim().split(' ').length === 1 ? 'word' : 'words'} and {text.trim().length} {text.trim().length === 1 ? 'character' : 'charaters'}  </p>
+                <p>{0.008 * text.trim().split(' ').length} minutes read</p>
+                <h3>Preview</h3>
+                <p>{text}</p>
             </div>
 
         </>
