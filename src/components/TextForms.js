@@ -6,6 +6,7 @@ export default function TextUtils(props) {
     const handleUpperCase = () => {
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert('Text Converted To Uppercase', 'success')
     }
 
     const handleOnChange = (event) => {
@@ -15,10 +16,12 @@ export default function TextUtils(props) {
     const handleLowerCase = () => {
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert('Text Converted To Lowercase', 'success')
     }
 
     const handleRemoveText = () => {
         setText('')
+        props.showAlert('Text Deleted', 'success')
     }
 
     const handleCopyText = () => {
@@ -26,11 +29,13 @@ export default function TextUtils(props) {
         myText.select();
         myText.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(myText.value)
+        props.showAlert('Text Copied', 'success')
     }
 
     const handleRemoveExtraSpaces = () => {
         let newText = text.split(/[ ]+/)
         setText(newText.join(' '))
+        props.showAlert('Removed Extra Space', 'success')
     }
 
 
@@ -42,9 +47,9 @@ export default function TextUtils(props) {
                     <textarea className="form-control my-2" id="myBox" style={{ background: props.mode === 'light' ? 'white' : '#495057', color: props.mode === 'light' ? 'black' : 'white' }} onChange={handleOnChange} rows="8" value={text} ></textarea>
                     <button onClick={handleUpperCase} type="button" className="btn btn-primary mx-1">Covert to UpperCase</button>
                     <button onClick={handleLowerCase} type="button" className="btn btn-primary mx-1">Covert to LowerCase</button>
-                    <button onClick={handleRemoveText} type="button" className="btn btn-primary mx-1">Remove Text</button>
                     <button onClick={handleCopyText} type="button" className="btn btn-primary mx-1">Copy Text</button>
                     <button onClick={handleRemoveExtraSpaces} type="button" className="btn btn-primary mx-1">Remove Extra Space</button>
+                    <button onClick={handleRemoveText} type="button" className="btn btn-primary mx-1">Remove Text</button>
                 </div>
             </div>
             <div className={`container my-2 text-${props.mode === 'light' ? 'black' : 'white'}`}>
