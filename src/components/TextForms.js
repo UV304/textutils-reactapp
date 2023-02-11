@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function TextUtils(props) {
+export default function TextForms(props) {
     const [text, setText] = useState('')
 
     const handleUpperCase = () => {

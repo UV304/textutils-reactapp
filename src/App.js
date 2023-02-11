@@ -1,9 +1,15 @@
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForms from './components/TextForms';
 import { useState } from 'react';
 import Alert from './components/Alert';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+
+} from "react-router-dom";
 
 
 function App() {
@@ -35,12 +41,16 @@ function App() {
 
   return (
     <>
-      <Navbar title={'TextUtils'} about={'About'} mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className='container '>
-        <TextForms heading="Enter text here" mode={mode} showAlert={showAlert} />
-        {/* <About /> */}
-      </div>
+      <BrowserRouter>
+        <Navbar title={'TextUtils'} about={'About'} mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <Routes>
+          <Route path="/about" element={<About />} />
+
+          < Route path="/"
+            element={<TextForms heading="Enter the text to analyse: " mode={mode} />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
